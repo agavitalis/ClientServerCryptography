@@ -31,7 +31,7 @@ public class Client {
     private static byte[] performKeyExchange(Socket socket, KeyPair clientKP) throws Exception {
         Utils.sendPublicKey(socket, clientKP.getPublic());
         PublicKey serverPub = Utils.receivePublicKey(socket);
-        return Utils.generateSharedBytes(clientKP.getPrivate(), serverPub);
+        return Utils.generateSharedSecret(clientKP.getPrivate(), serverPub);
     }
 
     private static boolean performMutualAuthentication(Socket socket, SecretKey hmacKey) throws Exception {

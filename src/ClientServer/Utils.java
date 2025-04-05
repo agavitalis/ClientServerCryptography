@@ -22,7 +22,7 @@ public class Utils {
         return gen.generateKeyPair();
     }
 
-    public static byte[] generateSharedBytes(PrivateKey privateKey, PublicKey publicKey) throws Exception {
+    public static byte[] generateSharedSecret(PrivateKey privateKey, PublicKey publicKey) throws Exception {
         KeyAgreement agreement = KeyAgreement.getInstance(DH_ALGORITHM);
         agreement.init(privateKey);
         agreement.doPhase(publicKey, true);
